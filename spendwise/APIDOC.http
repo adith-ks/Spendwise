@@ -1,0 +1,57 @@
+### to register a user
+POST http://127.0.0.1:8000/register/
+Content-Type: application/json
+
+{
+    "username": "adi",
+    "email": "adi123@gmail.com",
+    "password": "adi123"
+
+}
+
+###  to see all the users
+GEt http://127.0.0.1:8000/users/
+Accept: application/json
+
+### to get the token
+POST http://127.0.0.1:8000/login/
+Content-Type: application/json
+
+{
+    "username": "adi",
+    "password": "adi123"
+    # adith - 1d680ebfab67ade2db76a1dee8d9e154622331fd
+    #adi - 4b4ccbecf90551cacaeff57d1b6d612e89aee3e9
+}
+
+###  to get the expenses by a user
+GET http://127.0.0.1:8000/expenses/
+Accept: application/json
+Authorization: Token 1d680ebfab67ade2db76a1dee8d9e154622331fd
+
+###  to add an expense
+POST http://127.0.0.1:8000/expenses/
+Content-Type: application/json
+Authorization: Token 1d680ebfab67ade2db76a1dee8d9e154622331fd
+
+{
+    "title": "lunch",
+    "amount": 200,
+    "category": "food",
+    "description": "lunch with friends"
+}
+
+### to update an expense of a user
+PUT http://127.0.0.1:8000/expenses/1/
+Content-Type: application/json
+Authorization: Token 1d680ebfab67ade2db76a1dee8d9e154622331fd
+
+{
+    "title": "lunch",
+    "amount": 300,
+    "category": "food",
+    "description": "lunch with friends"
+}
+
+DELETE http://127.0.0.1:8000/expenses/1/
+Content-Type: application/json
